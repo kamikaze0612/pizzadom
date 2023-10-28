@@ -96,7 +96,7 @@ function Cart() {
         <GridContainer>
           <CartItemBox>
             {cart.map((pizzaItem) => (
-              <CartItem pizza={pizzaItem} key={pizzaItem.id} />
+              <CartItem pizza={pizzaItem} key={pizzaItem.pizzaId} />
             ))}
           </CartItemBox>
           <PriceBox>

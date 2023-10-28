@@ -72,16 +72,15 @@ function MenuItem({ pizza }) {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart.cart);
-  const addedPizza = cart.find((pizzaItem) => pizzaItem.id === id);
+  const addedPizza = cart.find((pizzaItem) => pizzaItem.pizzaId === id);
 
   function handleAddItem() {
     const newPizza = {
-      id,
+      pizzaId: id,
       name,
       unitPrice: +unitPrice,
       quantity: 1,
-      ingredients,
-      imageUrl,
+      totalPrice: +unitPrice,
     };
     dispatch(addItem(newPizza));
   }

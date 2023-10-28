@@ -14,8 +14,21 @@ const StyledLoader = styled.div`
     }
   }
 `;
+
+const LoaderContainer = styled.div`
+  height: calc(100vh - 80px);
+  display: flex;
+  backdrop-filter: blur(3px);
+  align-items: center;
+  justify-content: center;
+`;
+
 function Loader() {
-  return <StyledLoader></StyledLoader>;
+  return (
+    <LoaderContainer>
+      <StyledLoader></StyledLoader>
+    </LoaderContainer>
+  );
 }
 
 export default Loader;

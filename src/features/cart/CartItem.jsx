@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
 import Button from "../../ui/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { decrementQuantity, deleteItem, increaseQuantity } from "./cartSlice";
 import { formatCurrency } from "../../utils/helpers";
 
@@ -59,25 +59,33 @@ const Price = styled.span`
 function CartItem({ pizza }) {
   const dispatch = useDispatch();
 
+  const pizzas = useSelector((state) => state.cart.pizzas);
+
+  const currentPizza =
+    pizzas && pizzas.find((pizzaItem) => pizza.pizzaId === pizzaItem.id);
+
   return (
     <StyledCartItem>
-      <PizzaImg src={pizza.imageUrl} />
+      <PizzaImg src={currentPizza.imageUrl} />
       <PizzaDetails>
         <Name>{pizza.name}</Name>
-        <Ingredients>{pizza.ingredients.join(", ")}</Ingredients>
+        <Ingredients>{currentPizza.ingredients.join(", ")}</Ingredients>
       </PizzaDetails>
       <Buttons>
-        <Price>{formatCurrency(pizza.quantity * pizza.unitPrice)}</Price>
+        <Price>{formatCurrency(pizza.totalPrice)}</Price>
         <QuantityBox>
-          <Button onClick={() => dispatch(decrementQuantity(pizza.id))}>
+          <Button onClick={() => dispatch(decrementQuantity(pizza.pizzaId))}>
             -
           </Button>
           <span>{pizza.quantity}</span>
-          <Button onClick={() => dispatch(increaseQuantity(pizza.id))}>
+          <Button onClick={() => dispatch(increaseQuantity(pizza.pizzaId))}>
             +
           </Button>
         </QuantityBox>
-        <Button onClick={() => dispatch(deleteItem(pizza.id))} size="medium">
+        <Button
+          onClick={() => dispatch(deleteItem(pizza.pizzaId))}
+          size="medium"
+        >
           Remove
         </Button>
       </Buttons>

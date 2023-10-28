@@ -16,29 +16,13 @@ const Main = styled.main`
   margin-top: 80px;
 `;
 
-const LoaderContainer = styled.div`
-  height: calc(100vh - 80px);
-  display: flex;
-  backdrop-filter: blur(3px);
-  align-items: center;
-  justify-content: center;
-`;
-
 function AppLayout() {
   const navigation = useNavigation();
 
   return (
     <App>
       <Header />
-      <Main>
-        {navigation.state === "loading" ? (
-          <LoaderContainer>
-            <Loader />
-          </LoaderContainer>
-        ) : (
-          <Outlet />
-        )}
-      </Main>
+      <Main>{navigation.state === "loading" ? <Loader /> : <Outlet />}</Main>
       <Footer />
       <CartOverview />
     </App>

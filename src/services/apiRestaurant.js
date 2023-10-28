@@ -7,3 +7,30 @@ export async function getMenu() {
   const data = await res.json();
   return data;
 }
+
+export async function getOrder(id) {
+  const res = await fetch(`${API_URL}/order/${id}`);
+  if (!res.ok) throw Error(`Couldn't find order F#${id}`);
+
+  const { data } = await res.json();
+  return data;
+}
+
+export async function createOrder(newOrder) {
+  try {
+    console.log(newOrder);
+    const res = await fetch(`${API_URL}/order`, {
+      method: "POST",
+      body: JSON.stringify(newOrder),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+
+    if (!res.ok) throw new Error("Creating order has failed😞");
+    const { data } = await res.json();
+    return data;
+  } catch (error) {
+    throw new Error("Failed creating your order");
+  }
+}
