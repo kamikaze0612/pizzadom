@@ -109,7 +109,7 @@ function CreateOrder() {
       </FormRow>
       <FormRow label="Phone number:" error={errors?.phone?.message}>
         <TextInput
-          type="text"
+          type="tel"
           name="phone"
           id="phone"
           placeholder="Enter phone number"
