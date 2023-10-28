@@ -78,7 +78,7 @@ function CreateOrder() {
 
       store.dispatch(clearCart());
       console.log(data);
-      navigate(`/main/order/${newOrder.id}`);
+      navigate(`/searchOrder/${newOrder.id}`);
     }
     postNewOrder();
     reset();

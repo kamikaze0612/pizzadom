@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import Button from "../../ui/Button";
@@ -14,15 +16,31 @@ const StyledSearch = styled.input`
   }
 `;
 
-const StyledDiv = styled.div`
+const StyledDiv = styled.form`
   display: flex;
   gap: 6px;
 `;
 
 function Search() {
+  const navigate = useNavigate();
+  const [query, setQuery] = useState("");
+
+  const handleSubmit = function (event) {
+    event.preventDefault();
+
+    if (!query) return;
+    navigate(`/searchOrder/${query}`);
+    setQuery("");
+  };
+
   return (
-    <StyledDiv>
-      <StyledSearch placeholder="Search order ID" />
+    <StyledDiv onSubmit={handleSubmit}>
+      <StyledSearch
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search order ID"
+      />
       <Button size="small">Search</Button>
     </StyledDiv>
   );

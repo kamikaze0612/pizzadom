@@ -31,6 +31,7 @@ const Name = styled.h3`
 const Ingredients = styled.p`
   font-size: 1.6rem;
   color: var(--color-grey-500);
+  font-style: italic;
 `;
 
 const QuantityBox = styled.span`

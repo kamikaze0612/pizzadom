@@ -12,6 +12,7 @@ import Order, { loader as orderLoader } from "./features/order/Order";
 import Cart from "./features/cart/Cart";
 import Menu, { loader as menuLoader } from "./features/menu/Menu";
 import AppLayout from "./ui/AppLayout";
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 function App() {
   const router = createBrowserRouter([
@@ -20,17 +21,21 @@ function App() {
       element: <Homepage />,
     },
     {
+      path: "/searchOrder/:orderId",
+      element: <Order />,
+      loader: orderLoader,
+    },
+    {
       path: "/main",
-      element: <AppLayout />,
+      element: (
+        <ProtectedRoute>
+          <AppLayout />
+        </ProtectedRoute>
+      ),
       children: [
         {
           path: "order/new",
           element: <CreateOrder />,
-        },
-        {
-          path: "order/:orderId",
-          element: <Order />,
-          loader: orderLoader,
         },
         {
           path: "cart",

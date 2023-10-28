@@ -9,6 +9,13 @@ import styled from "styled-components";
 import OrderItem from "./OrderItem";
 import { useEffect } from "react";
 import Loader from "../../ui/Loader";
+import Header from "../../ui/Header";
+import Footer from "../../ui/Footer";
+
+const OrderContainer = styled.div`
+  min-height: 80vh;
+  padding-top: 80px;
+`;
 
 const StyledOrder = styled.div`
   max-width: 100rem;
@@ -23,10 +30,11 @@ const OrderHeading = styled.h2`
   font-weight: 500;
 `;
 
-const FlexRow = styled.div`
-  display: flex;
-  justify-content: space-between;
+const Row = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
   align-items: center;
+  row-gap: 0.8rem;
 `;
 
 const FlexColumn = styled.ul`
@@ -42,6 +50,7 @@ const StatusTag = styled.span`
   color: var(--color-grey-0);
   background-color: #3cc55e;
   text-transform: uppercase;
+  justify-self: end;
 `;
 
 const BoldText = styled.p`
@@ -51,12 +60,15 @@ const BoldText = styled.p`
 
 const SmallText = styled.p`
   font-size: 1.6rem;
+  justify-self: end;
+  color: var(--color-grey-500);
 `;
 
 const Price = styled.span`
   font-size: 1.6rem;
   font-weight: 600;
   font-family: "Roboto Mono", sans-serif;
+  justify-self: end;
 `;
 
 function Order() {
@@ -72,57 +84,71 @@ function Order() {
   const { id, status, estimatedDelivery, cart, orderPrice } = order;
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
-  return fetcher.state === "loading" ? (
-    <Loader />
-  ) : (
-    <StyledOrder>
-      <FlexRow>
-        <OrderHeading>Order #{id} status</OrderHeading>
-        <StatusTag>
-          {status === "preparing" ? "Preparing order" : "Delivered"}
-        </StatusTag>
-      </FlexRow>
-      <FlexRow
-        style={{
-          backgroundColor: "var(--color-grey-100)",
-          padding: "1.6rem 2.4rem",
-        }}
-      >
-        <BoldText>
-          {deliveryIn >= 0
-            ? `Only ${calcMinutesLeft(estimatedDelivery)} minutes left 😃`
-            : "Order should have arrived"}
-        </BoldText>
-        <SmallText>
-          (Estimated delivery: {formatDate(estimatedDelivery)})
-        </SmallText>
-      </FlexRow>
-      <FlexColumn>
-        {cart.map((pizza) => (
-          <OrderItem
-            key={pizza.pizzaId}
-            pizza={pizza}
-            imageUrl={
-              fetcher.data?.data?.find((el) => el.id === pizza.pizzaId)
-                .imageUrl || undefined
-            }
-            ingredients={
-              fetcher.data?.data?.find((el) => el.id === pizza.pizzaId)
-                ?.ingredients ?? []
-            }
-          />
-        ))}
-      </FlexColumn>
-      <FlexRow
-        style={{
-          backgroundColor: "var(--color-grey-100)",
-          padding: "1.6rem 2.4rem",
-        }}
-      >
-        <BoldText>Total price:</BoldText>
-        <Price>{formatCurrency(orderPrice + 10)}</Price>
-      </FlexRow>
-    </StyledOrder>
+  return (
+    <>
+      <Header />
+      {fetcher.state === "loading" ? (
+        <Loader />
+      ) : (
+        <OrderContainer>
+          <StyledOrder>
+            <Row>
+              <OrderHeading>Order #{id} status</OrderHeading>
+              <StatusTag>
+                {status === "preparing" ? "Preparing order" : "Delivered"}
+              </StatusTag>
+            </Row>
+            <Row
+              style={{
+                backgroundColor: "var(--color-grey-100)",
+                padding: "1.6rem 2.4rem",
+              }}
+            >
+              <BoldText>
+                {deliveryIn >= 0
+                  ? `Only ${calcMinutesLeft(estimatedDelivery)} minutes left 😃`
+                  : "Order should have arrived"}
+              </BoldText>
+              <SmallText>
+                (Estimated delivery: {formatDate(estimatedDelivery)})
+              </SmallText>
+            </Row>
+            <FlexColumn>
+              {cart.map((pizza) => (
+                <OrderItem
+                  key={pizza.pizzaId}
+                  pizza={pizza}
+                  imageUrl={
+                    fetcher.data?.data?.find((el) => el.id === pizza.pizzaId)
+                      .imageUrl || undefined
+                  }
+                  ingredients={
+                    fetcher.data?.data?.find((el) => el.id === pizza.pizzaId)
+                      ?.ingredients ?? []
+                  }
+                />
+              ))}
+            </FlexColumn>
+            <Row
+              style={{
+                backgroundColor: "var(--color-grey-100)",
+                padding: "1.6rem 2.4rem",
+              }}
+            >
+              <BoldText
+                style={{ fontSize: "1.4rem", color: "var(--color-grey-500)" }}
+              >
+                Delivery fee:
+              </BoldText>
+              <Price>{formatCurrency(10)}</Price>
+              <BoldText>Total price:</BoldText>
+              <Price>{formatCurrency(orderPrice + 10)}</Price>
+            </Row>
+          </StyledOrder>
+        </OrderContainer>
+      )}
+      <Footer />
+    </>
   );
 }
 

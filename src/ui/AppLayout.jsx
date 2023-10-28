@@ -1,9 +1,9 @@
-import { Outlet, useNavigation } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
 import styled from "styled-components";
 import CartOverview from "../features/cart/CartOverview";
 import Loader from "./Loader";
+import { Outlet, useNavigation } from "react-router-dom";
 
 const App = styled.div`
   display: grid;
