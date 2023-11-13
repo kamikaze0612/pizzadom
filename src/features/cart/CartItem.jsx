@@ -18,6 +18,11 @@ const PizzaImg = styled.img`
   border-radius: var(--border-radius-md);
   object-fit: cover;
   object-position: center;
+
+  @media only screen and (max-width: 75em) {
+    width: 9rem;
+    height: 9rem;
+  }
 `;
 
 const PizzaDetails = styled.div`
@@ -30,11 +35,19 @@ const PizzaDetails = styled.div`
 const Name = styled.h3`
   font-size: 2.4rem;
   font-weight: 600;
+
+  @media only screen and (max-width: 75em) {
+    font-size: 2rem;
+  }
 `;
 
 const Ingredients = styled.p`
   font-size: 1.6rem;
   color: var(--color-grey-500);
+
+  @media only screen and (max-width: 75em) {
+    font-size: 1.4rem;
+  }
 `;
 
 const Buttons = styled.div`
@@ -42,6 +55,10 @@ const Buttons = styled.div`
   align-items: center;
   gap: 3.2rem;
   margin-left: auto;
+
+  @media only screen and (max-width: 75em) {
+    gap: 2.4rem;
+  }
 `;
 
 const QuantityBox = styled.div`
@@ -54,6 +71,10 @@ const Price = styled.span`
   font-size: 2.4rem;
   font-weight: 600;
   font-family: "Roboto Mono", sans-serif;
+
+  @media only screen and (max-width: 75em) {
+    font-size: 2rem;
+  }
 `;
 
 function CartItem({ pizza }) {

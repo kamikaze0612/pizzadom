@@ -7,6 +7,10 @@ import { formatCurrency } from "../../utils/helpers";
 
 const CartContainer = styled.div`
   padding: 6.4rem 9.6rem;
+
+  @media only screen and (max-width: 90em) {
+    padding: 4.8rem 6.4rem;
+  }
 `;
 
 const Buttons = styled.div`
@@ -14,6 +18,10 @@ const Buttons = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 4.8rem;
+
+  @media only screen and (max-width: 90em) {
+    margin-bottom: 3.2rem;
+  }
 `;
 
 const GridContainer = styled.div`
@@ -21,12 +29,25 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
   column-gap: 4.8rem;
+  row-gap: 3.2rem;
+
+  @media only screen and (max-width: 90em) {
+    column-gap: 3.2rem;
+  }
 `;
 
 const CartItemBox = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+
+  @media only screen and (max-width: 75em) {
+    gap: 1.2rem;
+  }
+
+  @media only screen and (max-width: 64em) {
+    grid-column: 1 / -1;
+  }
 `;
 
 const PriceBox = styled.div`
@@ -37,11 +58,24 @@ const PriceBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+
+  @media only screen and (max-width: 90em) {
+    padding: 2.4rem;
+    width: 360px;
+  }
+
+  @media only screen and (max-width: 64em) {
+    justify-self: center;
+  }
 `;
 
 const H2 = styled.h2`
   font-size: 3.6rem;
   font-weight: 600;
+
+  @media only screen and (max-width: 90em) {
+    font-size: 3rem;
+  }
 `;
 
 const PriceRow = styled.p`
@@ -51,6 +85,24 @@ const PriceRow = styled.p`
   align-items: center;
   justify-content: space-between;
   color: var(--color-grey-800);
+
+  @media only screen and (max-width: 90em) {
+    font-size: 2.4rem;
+  }
+
+  @media only screen and (max-width: 75em) {
+    font-size: 1.6rem;
+  }
+`;
+
+const Paragraph = styled.span`
+  font-weight: 400;
+  color: var(--color-grey-500);
+  font-size: 2.2rem;
+
+  @media only screen and (max-width: 75em) {
+    font-size: 1.6rem;
+  }
 `;
 
 const Line = styled.span`
@@ -101,29 +153,13 @@ function Cart() {
           </CartItemBox>
           <PriceBox>
             <PriceRow>
-              <span
-                style={{
-                  fontSize: "2rem",
-                  fontWeight: "400",
-                  color: "var(--color-grey-500)",
-                }}
-              >
-                Pizzas
-              </span>
+              <Paragraph>Pizzas</Paragraph>
               <span style={{ fontFamily: '"Roboto Mono", sans-serif' }}>
                 {formatCurrency(totalPrice)}
               </span>
             </PriceRow>
             <PriceRow>
-              <span
-                style={{
-                  fontSize: "2rem",
-                  fontWeight: "400",
-                  color: "var(--color-grey-500)",
-                }}
-              >
-                Delivery Fee
-              </span>
+              <Paragraph>Delivery Fee</Paragraph>
               <span style={{ fontFamily: "Roboto Mono, sans-serif" }}>
                 {formatCurrency(10)}
               </span>

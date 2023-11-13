@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 const API_URL = "https://react-fast-pizza-api.onrender.com/api";
 
 export async function getMenu() {
@@ -27,8 +29,12 @@ export async function createOrder(newOrder) {
       },
     });
 
-    if (!res.ok) throw new Error("Creating order has failed😞");
+    if (!res.ok) {
+      toast.error("Could not place order");
+      throw new Error("Creating order has failed😞");
+    }
     const { data } = await res.json();
+    toast.success("Order placed");
     return data;
   } catch (error) {
     throw new Error("Failed creating your order");

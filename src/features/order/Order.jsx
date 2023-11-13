@@ -23,6 +23,11 @@ const StyledOrder = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+
+  @media only screen and (max-width: 64em) {
+    max-width: 72rem;
+    padding: 0 3.2rem;
+  }
 `;
 
 const OrderHeading = styled.h2`

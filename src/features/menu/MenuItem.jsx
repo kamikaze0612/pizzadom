@@ -24,17 +24,29 @@ const PizzaImage = styled.img`
   object-fit: cover;
   object-position: center;
   border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+
+  @media only screen and (max-width: 75em) {
+    height: 16rem;
+  }
 `;
 
 const PizzaTextBox = styled.div`
   padding: 1.2rem 2.4rem 2.4rem 2.4rem;
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: 75em) {
+    padding: 1.2rem 1.6rem 1.6rem 1.6rem;
+  }
 `;
 
 const PizzaName = styled.h3`
   font-size: 2.2rem;
   font-weight: 600;
+
+  @media only screen and (max-width: 75em) {
+    font-size: 1.8rem;
+  }
 `;
 
 const PizzaIngredients = styled.p`
@@ -43,6 +55,10 @@ const PizzaIngredients = styled.p`
   margin-top: 0.8rem;
   margin-bottom: 1.2rem;
   font-style: italic;
+
+  @media only screen and (max-width: 75em) {
+    font-size: 1.2rem;
+  }
 `;
 
 const PizzaPrice = styled.span`
@@ -52,6 +68,10 @@ const PizzaPrice = styled.span`
   color: var(--color-grey-800);
   font-family: "Roboto Mono", sans-serif;
   font-weight: 500;
+
+  @media only screen and (max-width: 75em) {
+    font-size: 1.8rem;
+  }
 `;
 
 const Buttons = styled.div`

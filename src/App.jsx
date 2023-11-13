@@ -27,11 +27,12 @@ function App() {
     },
     {
       path: "/main",
-      element: (
+      /* element: (
         <ProtectedRoute>
           <AppLayout />
         </ProtectedRoute>
-      ),
+      ), */
+      element: <AppLayout />,
       children: [
         {
           path: "order/new",

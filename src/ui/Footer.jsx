@@ -16,12 +16,20 @@ const StyledFooter = styled.footer`
   gap: 4.8rem;
   box-shadow: var(--shadow-md);
   background-color: var(--color-grey-0);
+
+  @media only screen and (max-width: 75em) {
+    padding: 3.2rem 9.6rem 1.6rem 9.6rem;
+  }
 `;
 
 const FooterContent = styled.div`
   display: flex;
   gap: 19.2rem;
   align-items: start;
+
+  @media only screen and (max-width: 75em) {
+    gap: 12.8rem;
+  }
 `;
 
 const StyledList = styled.ul`
@@ -43,12 +51,20 @@ const FooterRow = styled.div`
 
 const FooterImg = styled.img`
   width: 6rem;
+
+  @media only screen and (max-width: 75em) {
+    width: 5rem;
+  }
 `;
 
 const H3 = styled.h3`
   font-size: 2rem;
   font-weight: 600;
   text-transform: uppercase;
+
+  @media only screen and (max-width: 75em) {
+    font-size: 1.8rem;
+  }
 `;
 
 const ListLink = styled.a`
@@ -56,6 +72,10 @@ const ListLink = styled.a`
   &:visited {
     font-size: 1.8rem;
     color: var(--color-grey-500);
+
+    @media only screen and (max-width: 75em) {
+      font-size: 1.4rem;
+    }
   }
 
   &:active,
@@ -68,6 +88,10 @@ const Author = styled.p`
   text-align: center;
   font-size: 1.6rem;
   color: var(--color-grey-400);
+
+  @media only screen and (max-width: 75em) {
+    font-size: 1.4rem;
+  }
 `;
 
 function Footer() {

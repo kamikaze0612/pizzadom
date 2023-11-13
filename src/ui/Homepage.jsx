@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Header from "./Header";
 import Button from "./Button";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateName } from "../features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -25,12 +25,20 @@ const Form = styled.form`
 
 const H1 = styled.h1`
   font-size: 62px;
+
+  @media only screen and (max-width: 75em) {
+    font-size: 52px;
+  }
 `;
 
 const H2 = styled.h2`
   font-size: 52px;
   color: var(--color-red-700);
   font-weight: 500;
+
+  @media only screen and (max-width: 75em) {
+    font-size: 36px;
+  }
 `;
 
 const P = styled.p`
@@ -55,13 +63,18 @@ const Input = styled.input`
 function Homepage() {
   const [nameIsValid, setNameIsValid] = useState(true);
   const [username, setUsername] = useState("");
+  const { username: name } = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (username.length > 2) setNameIsValid(false);
-    else setNameIsValid(true);
-  }, [username]);
+    if (name) {
+      setNameIsValid(false);
+      setUsername(name);
+    }
+    if (!username) setNameIsValid(true);
+  }, [username, name]);
 
   function handleClick(e) {
     e.preventDefault();

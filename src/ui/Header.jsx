@@ -20,6 +20,30 @@ const StyledHeader = styled.header`
   left: 0;
   right: 0;
   z-index: 100;
+
+  @media only screen and (max-width: 64em) {
+    padding: 0 3.2rem;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 2.4rem;
+  color: var(--color-red-800);
+  font-weight: 500;
+
+  @media only screen and (max-width: 56.25em) {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: translate(0, 0);
+  }
 `;
 
 export const LogoImg = styled.img`
@@ -32,24 +56,10 @@ function Header() {
   return (
     <StyledHeader>
       <Search />
-      <Link
-        to="/"
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          display: "flex",
-          alignItems: "center",
-          gap: "6px",
-          fontSize: "2.4rem",
-          color: "var(--color-red-800)",
-          fontWeight: "500",
-        }}
-      >
+      <StyledLink to="/">
         <LogoImg src={logoImg} alt="Logo of pizzadom" />
         Pizzadom
-      </Link>
+      </StyledLink>
       {username && <Username username={username} />}
     </StyledHeader>
   );

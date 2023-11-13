@@ -12,11 +12,21 @@ const sizes = {
     font-size: 1.4rem;
     padding: 1.2rem 1.6rem;
     font-weight: 500;
+
+    @media only screen and (max-width: 75em) {
+      font-size: 1.2rem;
+      padding: 0.8rem 1.2rem;
+    }
   `,
   large: css`
     font-size: 1.6rem;
     padding: 1.2rem 2.4rem;
     font-weight: 500;
+
+    @media only screen and (max-width: 75em) {
+      font-size: 1.4rem;
+      padding: 0.8rem 1.2rem;
+    }
   `,
 };
 

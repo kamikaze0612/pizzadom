@@ -44,6 +44,10 @@ const ItemText = styled.p`
   color: var(--color-grey-200);
   text-transform: uppercase;
   letter-spacing: 6px;
+
+  @media only screen and (max-width: 64em) {
+    font-size: 3.6rem;
+  }
 `;
 
 // const Image = styled.img`
