@@ -22,6 +22,7 @@ const Container = styled.div`
   position: relative;
   transition: transform 0.8s;
   transform: translateX(0);
+  width: 33vh;
 
   ${(props) => positions[props.position]}
 `;
@@ -44,9 +45,19 @@ const ItemText = styled.p`
   color: var(--color-grey-200);
   text-transform: uppercase;
   letter-spacing: 6px;
+  text-align: center;
+  padding: 0 2.4rem;
 
   @media only screen and (max-width: 64em) {
     font-size: 3.6rem;
+  }
+
+  @media only screen and (max-width: 48em) {
+    font-size: 3rem;
+  }
+
+  @media only screen and (max-width: 27em) {
+    font-size: 2rem;
   }
 `;
 

@@ -17,6 +17,13 @@ const StyledFormRow = styled.div`
   @media only screen and (max-width: 64em) {
     grid-template-columns: 1fr 70vw;
   }
+
+  @media only screen and (max-width: 48em) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.2rem;
+  }
 `;
 
 const Label = styled.label`
@@ -25,6 +32,10 @@ const Label = styled.label`
 
   @media only screen and (max-width: 75em) {
     font-size: 1.8rem;
+  }
+
+  @media only screen and (max-width: 48em) {
+    font-size: 1.6rem;
   }
 `;
 

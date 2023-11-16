@@ -21,6 +21,7 @@ const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 `;
 
 const H1 = styled.h1`
@@ -29,21 +30,48 @@ const H1 = styled.h1`
   @media only screen and (max-width: 75em) {
     font-size: 52px;
   }
+
+  @media only screen and (max-width: 48em) {
+    font-size: 40px;
+  }
+
+  @media only screen and (max-width: 27em) {
+    font-size: 32px;
+  }
 `;
 
 const H2 = styled.h2`
   font-size: 52px;
   color: var(--color-red-700);
   font-weight: 500;
+  text-align: center;
 
   @media only screen and (max-width: 75em) {
     font-size: 36px;
+  }
+
+  @media only screen and (max-width: 48em) {
+    font-size: 24px;
+  }
+
+  @media only screen and (max-width: 27em) {
+    font-size: 20px;
   }
 `;
 
 const P = styled.p`
   margin-top: 2.4rem;
   font-size: 2.4rem;
+  font-weight: 400;
+  text-align: center;
+
+  @media only screen and (max-width: 48em) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (max-width: 27em) {
+    font-size: 1.4rem;
+  }
 `;
 
 const Input = styled.input`

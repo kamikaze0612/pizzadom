@@ -1,10 +1,13 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { HiMagnifyingGlass } from "react-icons/hi2";
 
 import logoImg from "../../src/img/logo.png";
 import Search from "../features/order/Search";
 import Username from "../features/user/Username";
+import Button from "./Button";
+import { useState } from "react";
 
 const StyledHeader = styled.header`
   background-color: rgba(255, 255, 255, 0.9);
@@ -44,6 +47,32 @@ const StyledLink = styled(Link)`
     left: auto;
     transform: translate(0, 0);
   }
+
+  @media only screen and (max-width: 48em) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media only screen and (max-width: 27em) {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: translate(0, 0);
+  }
+
+  @media only screen and (max-width: 27em) {
+    font-size: 1.8rem;
+  }
+`;
+
+const MobileButton = styled.span`
+  display: none;
+
+  @media only screen and (max-width: 48em) {
+    display: block;
+  }
 `;
 
 export const LogoImg = styled.img`
@@ -52,10 +81,19 @@ export const LogoImg = styled.img`
 
 function Header() {
   const { username } = useSelector((state) => state.cart);
+  const [showSearch, setShowSearch] = useState(false);
 
   return (
     <StyledHeader>
-      <Search />
+      <MobileButton>
+        <Button
+          variation="secondary"
+          onClick={() => setShowSearch((show) => !show)}
+        >
+          <HiMagnifyingGlass />
+        </Button>
+      </MobileButton>
+      <Search showSearch={showSearch} />
       <StyledLink to="/">
         <LogoImg src={logoImg} alt="Logo of pizzadom" />
         Pizzadom

@@ -20,6 +20,14 @@ const StyledFooter = styled.footer`
   @media only screen and (max-width: 75em) {
     padding: 3.2rem 9.6rem 1.6rem 9.6rem;
   }
+
+  @media only screen and (max-width: 75em) {
+    padding: 3.2rem 4.8rem 1.6rem 4.8rem;
+  }
+
+  @media only screen and (max-width: 48em) {
+    padding: 2.4rem 3.2rem;
+  }
 `;
 
 const FooterContent = styled.div`
@@ -29,6 +37,16 @@ const FooterContent = styled.div`
 
   @media only screen and (max-width: 75em) {
     gap: 12.8rem;
+  }
+
+  @media only screen and (max-width: 48em) {
+    gap: 0;
+    justify-content: space-between;
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    flex-direction: column;
+    gap: 3.2rem;
   }
 `;
 
@@ -55,6 +73,10 @@ const FooterImg = styled.img`
   @media only screen and (max-width: 75em) {
     width: 5rem;
   }
+
+  @media only screen and (max-width: 48em) {
+    width: 3rem;
+  }
 `;
 
 const H3 = styled.h3`
@@ -64,6 +86,10 @@ const H3 = styled.h3`
 
   @media only screen and (max-width: 75em) {
     font-size: 1.8rem;
+  }
+
+  @media only screen and (max-width: 48em) {
+    font-size: 1.6rem;
   }
 `;
 
@@ -92,26 +118,34 @@ const Author = styled.p`
   @media only screen and (max-width: 75em) {
     font-size: 1.4rem;
   }
+
+  @media only screen and (max-width: 27em) {
+    font-size: 1.2rem;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 3.6rem;
+  align-self: center;
+  color: var(--color-red-800);
+  font-weight: 600;
+
+  @media only screen and (max-width: 27em) {
+    align-self: start;
+  }
 `;
 
 function Footer() {
   return (
     <StyledFooter>
       <FooterContent>
-        <Link
-          style={{
-            display: "flex",
-            gap: "6px",
-            alignItems: "center",
-            fontSize: "3.6rem",
-            alignSelf: "center",
-            color: "var(--color-red-800)",
-            fontWeight: "600",
-          }}
-        >
+        <StyledLink>
           <FooterImg src={logoImg} alt="Logo of pizzadom" />
           Pizzadom
-        </Link>
+        </StyledLink>
         <FooterColumn>
           <H3>About us</H3>
           <StyledList>

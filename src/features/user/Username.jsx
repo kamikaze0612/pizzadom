@@ -12,6 +12,10 @@ const StyledDiv = styled.div`
 const StyledUsername = styled.span`
   font-size: 1.8rem;
   font-weight: 500;
+
+  @media only screen and (max-width: 27em) {
+    font-size: 1.4rem;
+  }
 `;
 
 function Username({ username }) {

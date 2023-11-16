@@ -10,6 +10,16 @@ const StyledCartItem = styled.li`
   align-items: center;
   padding: 2.4rem 3.2rem;
   width: 100%;
+
+  @media only screen and (max-width: 48em) {
+    padding: 2.4rem 0;
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    row-gap: 1.6rem;
+  }
 `;
 
 const PizzaImg = styled.img`
@@ -22,6 +32,11 @@ const PizzaImg = styled.img`
   @media only screen and (max-width: 75em) {
     width: 9rem;
     height: 9rem;
+  }
+
+  @media only screen and (max-width: 27em) {
+    width: 6rem;
+    height: 6rem;
   }
 `;
 
@@ -38,6 +53,10 @@ const Name = styled.h3`
 
   @media only screen and (max-width: 75em) {
     font-size: 2rem;
+  }
+
+  @media only screen and (max-width: 27em) {
+    font-size: 1.6rem;
   }
 `;
 
@@ -58,6 +77,10 @@ const Buttons = styled.div`
 
   @media only screen and (max-width: 75em) {
     gap: 2.4rem;
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    grid-column: 1 / -1;
   }
 `;
 

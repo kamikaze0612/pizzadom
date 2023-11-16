@@ -10,10 +10,23 @@ const StyledMenuList = styled.ul`
   padding-bottom: 6.4rem;
 
   @media only screen and (max-width: 90em) {
+    grid-template-columns: repeat(3, 1fr);
     gap: 3.2rem;
     padding: 3.2rem;
     padding-top: 0;
     padding-bottom: 4.8rem;
+  }
+
+  @media only screen and (max-width: 48em) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (max-width: 27em) {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    max-width: 36rem;
+    margin: 0 auto;
   }
 `;
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -19,9 +20,24 @@ const StyledSearch = styled.input`
 const StyledDiv = styled.form`
   display: flex;
   gap: 6px;
+
+  @media only screen and (max-width: 48em) {
+    position: absolute;
+    top: 84px;
+    border-radius: var(--border-radius-sm);
+    padding: 0.8rem;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: var(--shadow-md);
+    display: ${(props) => (props.display ? "flex" : "none")};
+  }
+
+  @media only screen and (max-width: 27em) {
+    width: 100vw;
+  }
 `;
 
-function Search() {
+function Search({ showSearch }) {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
 
@@ -34,7 +50,7 @@ function Search() {
   };
 
   return (
-    <StyledDiv onSubmit={handleSubmit}>
+    <StyledDiv display={showSearch} onSubmit={handleSubmit}>
       <StyledSearch
         type="text"
         value={query}

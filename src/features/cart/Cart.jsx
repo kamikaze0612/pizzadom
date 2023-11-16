@@ -11,6 +11,10 @@ const CartContainer = styled.div`
   @media only screen and (max-width: 90em) {
     padding: 4.8rem 6.4rem;
   }
+
+  @media only screen and (max-width: 48em) {
+    padding: 4.8rem 3.2rem;
+  }
 `;
 
 const Buttons = styled.div`
@@ -33,6 +37,10 @@ const GridContainer = styled.div`
 
   @media only screen and (max-width: 90em) {
     column-gap: 3.2rem;
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    column-gap: 0;
   }
 `;
 
@@ -61,11 +69,12 @@ const PriceBox = styled.div`
 
   @media only screen and (max-width: 90em) {
     padding: 2.4rem;
-    width: 360px;
+    max-width: 360px;
   }
 
   @media only screen and (max-width: 64em) {
     justify-self: center;
+    width: 100%;
   }
 `;
 
@@ -75,6 +84,10 @@ const H2 = styled.h2`
 
   @media only screen and (max-width: 90em) {
     font-size: 3rem;
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    font-size: 1.8rem;
   }
 `;
 
@@ -116,6 +129,10 @@ const EmptyText = styled.p`
   font-weight: 500;
   text-align: center;
   color: var(--color-red-700);
+
+  @media only screen and (max-width: 56.25em) {
+    font-size: 2.4rem;
+  }
 `;
 
 function Cart() {
@@ -131,7 +148,7 @@ function Cart() {
   return (
     <CartContainer>
       <Buttons>
-        <span style={{ display: "flex", gap: "3.2rem", alignItems: "center" }}>
+        <span style={{ display: "flex", gap: "2.4rem", alignItems: "center" }}>
           <Button onClick={() => navigate(-1)} variation="secondary">
             &larr; Back
           </Button>

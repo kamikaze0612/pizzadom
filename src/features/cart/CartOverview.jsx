@@ -19,6 +19,11 @@ const Circle = styled.div`
   align-items: center;
   border: 1px solid var(--color-grey-400);
   background-color: var(--color-grey-0);
+
+  @media only screen and (max-width: 27em) {
+    right: 3vh;
+    bottom: 3vh;
+  }
 `;
 
 const Quantity = styled.span`

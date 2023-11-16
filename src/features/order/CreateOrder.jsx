@@ -23,6 +23,14 @@ const Form = styled.form`
   @media only screen and (max-width: 75em) {
     gap: 2.4rem;
   }
+
+  @media only screen and (max-width: 75em) {
+    margin: 0 auto;
+  }
+
+  @media only screen and (max-width: 27em) {
+    padding: 2.4rem;
+  }
 `;
 
 const TextInput = styled.input`
@@ -31,15 +39,23 @@ const TextInput = styled.input`
   padding: 1.2rem 2.4rem;
   border: none;
   border-radius: 100px;
+  color: var(--color-grey-800);
+  &::placeholder {
+    color: var(--color-grey-400);
+  }
 
   @media only screen and (max-width: 75em) {
     font-size: 1.8rem;
     padding: 0.8rem 1.6rem;
   }
 
-  color: var(--color-grey-800);
-  &::placeholder {
-    color: var(--color-grey-400);
+  @media only screen and (max-width: 48em) {
+    font-size: 1.6rem;
+  }
+
+  @media only screen and (max-width: 75em) {
+    padding: 0.8rem 1.2rem;
+    font-size: 1.4rem;
   }
 `;
 

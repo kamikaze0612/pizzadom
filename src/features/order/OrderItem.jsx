@@ -16,6 +16,11 @@ const PizzaImg = styled.img`
   border-radius: var(--border-radius-md);
   object-fit: cover;
   object-position: center;
+
+  @media only screen and (max-width: 27em) {
+    width: 6rem;
+    height: 6rem;
+  }
 `;
 
 const PizzaDetails = styled.div`
@@ -26,12 +31,20 @@ const PizzaDetails = styled.div`
 const Name = styled.h3`
   font-size: 1.6rem;
   font-weight: 400;
+
+  @media only screen and (max-width: 27em) {
+    font-size: 1.3rem;
+  }
 `;
 
 const Ingredients = styled.p`
   font-size: 1.6rem;
   color: var(--color-grey-500);
   font-style: italic;
+
+  @media only screen and (max-width: 27em) {
+    font-size: 1.2rem;
+  }
 `;
 
 const QuantityBox = styled.span`
@@ -53,7 +66,7 @@ function OrderItem({ pizza, imageUrl, ingredients }) {
       <PizzaImg src={imageUrl} alt={pizza.name} />
       <div>
         <PizzaDetails>
-          <div style={{ display: "flex", gap: ".6rem" }}>
+          <div style={{ display: "flex", gap: ".8rem" }}>
             <QuantityBox>{pizza.quantity} &times;</QuantityBox>
             <Name>{pizza.name}</Name>
           </div>

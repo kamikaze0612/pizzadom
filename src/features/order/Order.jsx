@@ -33,6 +33,10 @@ const StyledOrder = styled.div`
 const OrderHeading = styled.h2`
   font-size: 2.4rem;
   font-weight: 500;
+
+  @media only screen and (max-width: 27em) {
+    font-size: 1.4rem;
+  }
 `;
 
 const Row = styled.div`
@@ -56,6 +60,10 @@ const StatusTag = styled.span`
   background-color: #3cc55e;
   text-transform: uppercase;
   justify-self: end;
+
+  @media only screen and (max-width: 27em) {
+    font-size: 1.4rem;
+  }
 `;
 
 const BoldText = styled.p`

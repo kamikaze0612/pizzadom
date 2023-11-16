@@ -16,6 +16,7 @@ const StyledMenuItem = styled.li`
   border-radius: var(--border-radius-lg);
   display: grid;
   grid-template-rows: auto 1fr;
+  width: 100%;
 `;
 
 const PizzaImage = styled.img`
